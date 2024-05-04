@@ -1,11 +1,11 @@
 package com.danalves.agendapet.controller;
 
-import com.danalves.agendapet.dto.NewAnimalForm;
+import com.danalves.agendapet.dto.NewAnimalRequest;
 import com.danalves.agendapet.model.Animal;
 import com.danalves.agendapet.service.AnimalService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/animal")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearer-key")
 public class AnimalController {
 
     private final AnimalService service;
@@ -26,7 +27,7 @@ public class AnimalController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> addAnimal(@RequestBody @Valid NewAnimalForm form) {
+    public ResponseEntity<?> addAnimal(@RequestBody @Valid NewAnimalRequest form) {
         service.addAnimal(form);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

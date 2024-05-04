@@ -2,7 +2,7 @@ package com.danalves.agendapet.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record NewAnimalForm(
+public record NewAnimalRequest(
         @NotBlank(message = "Empty fields will not be accepted.")
         String name,
         @NotBlank(message = "Empty fields will not be accepted.")

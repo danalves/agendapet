@@ -1,6 +1,6 @@
 package com.danalves.agendapet.model;
 
-import com.danalves.agendapet.dto.NewAnimalForm;
+import com.danalves.agendapet.dto.NewAnimalRequest;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,7 @@ public class Animal {
     @Column(nullable = false)
     private String dateOfBirth;
 
-    public Animal(NewAnimalForm form) {
+    public Animal(NewAnimalRequest form) {
         this.name = form.name();
         this.species = form.species();
         this.breed = form.breed();

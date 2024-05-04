@@ -6,9 +6,15 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     show-sql: true
     properties:
       hibernate:
         format_sql: true
 
+
+application:
+  security:
+    jwt:
+      secret-key: Y3JlYXRlcG9vbHNpc3RlcmtpZHNjaG9zZW5sb2NhdGlvbmNsZWFybHlkdXJpbmdncmE=
+      expiration: 10000
