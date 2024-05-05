@@ -15,7 +15,7 @@ public class AnimalService {
     private final AnimalRepository animalRepository;
 
     public Page<Animal> listAnimals(Pageable pageable) {
-        return animalRepository.findAll(pageable);
+        return animalRepository.findAllByActiveTrue(pageable);
     }
 
     public void addAnimal(NewAnimalRequest form) {

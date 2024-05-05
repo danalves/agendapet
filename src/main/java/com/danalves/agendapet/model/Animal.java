@@ -2,6 +2,7 @@ package com.danalves.agendapet.model;
 
 import com.danalves.agendapet.dto.NewAnimalRequest;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,11 +10,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Animal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -24,6 +26,8 @@ public class Animal {
     private String gender;
     @Column(nullable = false)
     private String dateOfBirth;
+    @Column(nullable = false)
+    private boolean active;
 
     public Animal(NewAnimalRequest form) {
         this.name = form.name();
@@ -31,6 +35,7 @@ public class Animal {
         this.breed = form.breed();
         this.gender = form.gender();
         this.dateOfBirth = form.dateOfBirth();
+        this.active = true;
     }
 
 }
