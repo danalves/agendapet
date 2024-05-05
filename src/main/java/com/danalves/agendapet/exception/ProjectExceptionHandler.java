@@ -1,6 +1,7 @@
 package com.danalves.agendapet.exception;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
+@Slf4j
 public class ProjectExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -28,11 +30,5 @@ public class ProjectExceptionHandler {
 
         return ResponseEntity.badRequest().body(errors);
     }
-
-    @ExceptionHandler(ExpiredJwtException.class)
-    public ResponseEntity<String> handleAuthenticationException(AuthenticationException ex) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
-    }
-
 }
 

@@ -5,16 +5,13 @@ spring:
     password: ${DATABASE_PWD_AGENDAPET}
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
-    hibernate:
-      ddl-auto: create
     show-sql: true
     properties:
       hibernate:
         format_sql: true
 
-
 application:
   security:
     jwt:
       secret-key: ${SECRET_KEY_AGENDAPET}
-      expiration: 60000
+      expiration: 10000

@@ -6,6 +6,9 @@ import com.danalves.agendapet.service.AnimalService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/animal")
 @RequiredArgsConstructor
 @SecurityRequirement(name = "bearer-key")
+@Slf4j
 public class AnimalController {
 
     private final AnimalService service;
