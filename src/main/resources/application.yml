@@ -14,4 +14,4 @@ application:
   security:
     jwt:
       secret-key: ${SECRET_KEY_AGENDAPET}
-      expiration: 10000
+      expiration: 3600000
