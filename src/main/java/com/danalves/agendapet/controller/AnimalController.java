@@ -30,7 +30,7 @@ public class AnimalController {
         return ResponseEntity.ok(service.listAnimals(pageable));
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add2")
     public ResponseEntity<?> addAnimal(@RequestBody @Valid NewAnimalRequest form) {
         service.addAnimal(form);
         return ResponseEntity.status(HttpStatus.CREATED).build();
