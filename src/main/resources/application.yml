@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb:${DATABASE_URL_AGENDAPET}
+    url: ${DATABASE_URL_AGENDAPET}
     username: ${DATABASE_USER_AGENDAPET}
     password: ${DATABASE_PWD_AGENDAPET}
     driver-class-name: org.mariadb.jdbc.Driver

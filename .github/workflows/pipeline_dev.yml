@@ -34,4 +34,4 @@ jobs:
       - name: Remove docker container
         run: docker rm -f agendapet-api
       - name: Run docker container
-        run: docker run -d -p 8080:8080 -e DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USERNAME}} -e DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PASSWORD}}' -e DATABASE_URL_AGENDAPET=${{secrets.DATABASE_URL}} -e SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}} --name agendapet-api daniloalvesvieira/agendapet-api
+        run: docker run -d -p 8080:8080 -e DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USERNAME}} -e DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PASSWORD}}' -e DATABASE_URL_AGENDAPET=${{secrets.DATABASE_URL_AGENDAPET}} -e SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}} --name agendapet-api daniloalvesvieira/agendapet-api
