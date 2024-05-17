@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?createDatabaseIfNotExist=true
+    url: jdbc:mariadb://170.152.20.20:${DATABASE_PORT}/${DATABASE_NAME}?createDatabaseIfNotExist=true
     username: ${DATABASE_USER_AGENDAPET}
     password: ${DATABASE_PWD_AGENDAPET}
     driver-class-name: org.mariadb.jdbc.Driver
