@@ -31,10 +31,10 @@ jobs:
     steps:
       - name: Pull docker-compose e infra files from repo
         run: |
-          pwd
+          rm *
           wget https://raw.githubusercontent.com/danalves/agendapet/master/docker-compose.yml
           wget https://raw.githubusercontent.com/danalves/agendapet/master/infra.yml
       - name: Deploy to EC2
         run: | 
           docker-compose pull
-          docker-compose up -d --build --force-recreate -e DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}} -e DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PWD_AGENDAPET}}' -e DATABASE_HOST=${{secrets.DATABASE_HOST}} -e DATABASE_PORT=${{secrets.DATABASE_PORT}} -e DATABASE_NAME=${{secrets.DATABASE_NAME}} -e SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}}
+          docker-compose run -d --build --force-recreate -e DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}} -e DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PWD_AGENDAPET}}' -e DATABASE_HOST=${{secrets.DATABASE_HOST}} -e DATABASE_PORT=${{secrets.DATABASE_PORT}} -e DATABASE_NAME=${{secrets.DATABASE_NAME}} -e SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}}
