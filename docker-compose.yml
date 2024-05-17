@@ -3,7 +3,7 @@ include:
 
 services:
   agendapet-api:
-    build: daniloalvesvieira/agendapet-api:latest
+    image: daniloalvesvieira/agendapet-api:latest
     environment:
       DATABASE_HOST: ${DATABASE_HOST}
       DATABASE_PORT: ${DATABASE_PORT}
