@@ -34,7 +34,15 @@ jobs:
           rm * -f
           wget https://raw.githubusercontent.com/danalves/agendapet/master/docker-compose.yml
           wget https://raw.githubusercontent.com/danalves/agendapet/master/infra.yml
+      - name: Create Env Vars
+        run: |
+          export DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}}
+          export DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PWD_AGENDAPET}}'
+          export DATABASE_HOST=${{secrets.DATABASE_HOST}}
+          export DATABASE_PORT=${{secrets.DATABASE_PORT}}
+          export DATABASE_NAME=${{secrets.DATABASE_NAME}}
+          export SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}}
       - name: Deploy to EC2
-        run: | 
+        run: |
           docker-compose pull
-          docker-compose run -d --build -e DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}} -e DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PWD_AGENDAPET}}' -e DATABASE_HOST=${{secrets.DATABASE_HOST}} -e DATABASE_PORT=${{secrets.DATABASE_PORT}} -e DATABASE_NAME=${{secrets.DATABASE_NAME}} -e SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}}
+          docker-compose up -d --build --force-recreate
