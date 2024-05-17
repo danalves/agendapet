@@ -35,4 +35,4 @@ jobs:
         run: docker rm -f agendapet-api
       - name: Run docker container
         run: | 
-          docker run -d -p 8080:8080 --link my_mariadb:my_mariadb -e DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}} -e DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PWD_AGENDAPET}}' -e DATABASE_HOST=${{secrets.DATABASE_HOST}} -e DATABASE_PORT=${{secrets.DATABASE_PORT}} -e DATABASE_NAME=${{secrets.DATABASE_NAME}} -e SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}} --name agendapet-api daniloalvesvieira/agendapet-api
+          docker run -d -p 8080:8080 -e DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}} -e DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PWD_AGENDAPET}}' -e DATABASE_HOST=${{secrets.DATABASE_HOST}} -e DATABASE_PORT=${{secrets.DATABASE_PORT}} -e DATABASE_NAME=${{secrets.DATABASE_NAME}} -e SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}} --name agendapet-api daniloalvesvieira/agendapet-api
