@@ -1,0 +1,21 @@
+services:
+  my_mariadb:
+    image: mariadb:10.11
+    restart: unless-stopped
+    container_name: my_mariadb
+    ports:
+      - "3306:3306"
+    networks:
+      - agendapet-network
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: agendapet_db
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
+
+networks:
+  agendapet-network:
+    driver: bridge

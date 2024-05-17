@@ -1,0 +1,21 @@
+include:
+  - infra.yml
+
+services:
+  agendapet-api:
+    build: daniloalvesvieira/agendapet-api:latest
+    environment:
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USER_AGENDAPET: ${DATABASE_USER_AGENDAPET}
+      DATABASE_PWD_AGENDAPET: ${DATABASE_PWD_AGENDAPET}
+      SECRET_KEY_AGENDAPET: ${SECRET_KEY_AGENDAPET}
+
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    networks:
+      - agendapet-network
+    depends_on:
+      - my_mariadb
