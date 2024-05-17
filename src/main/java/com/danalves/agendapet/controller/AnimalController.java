@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -25,15 +26,22 @@ public class AnimalController {
 
     private final AnimalService service;
 
+    @Value("${DATABASE_URL_AGENDAPET}")
+    private String teste;
+
     @GetMapping("/list")
     public ResponseEntity<Page<Animal>> listAnimals(@PageableDefault(size = 10) Pageable pageable) {
         return ResponseEntity.ok(service.listAnimals(pageable));
     }
 
-    @PostMapping("/add2")
+    @PostMapping("/add")
     public ResponseEntity<?> addAnimal(@RequestBody @Valid NewAnimalRequest form) {
+
+        log.error("Teste:" + teste);
+        System.out.println("Teste:" + teste);
+
         service.addAnimal(form);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(teste);
     }
 }
 
