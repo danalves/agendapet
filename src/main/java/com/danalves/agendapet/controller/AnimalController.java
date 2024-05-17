@@ -26,9 +26,6 @@ public class AnimalController {
 
     private final AnimalService service;
 
-    @Value("${DATABASE_URL_AGENDAPET}")
-    private String teste;
-
     @GetMapping("/list")
     public ResponseEntity<Page<Animal>> listAnimals(@PageableDefault(size = 10) Pageable pageable) {
         return ResponseEntity.ok(service.listAnimals(pageable));
@@ -36,12 +33,8 @@ public class AnimalController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addAnimal(@RequestBody @Valid NewAnimalRequest form) {
-
-        log.error("Teste:" + teste);
-        System.out.println("Teste:" + teste);
-
         service.addAnimal(form);
-        return ResponseEntity.status(HttpStatus.CREATED).body(teste);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
 
