@@ -36,13 +36,13 @@ jobs:
           wget https://raw.githubusercontent.com/danalves/agendapet/master/infra.yml
       - name: Create Env Vars
         run: |
-          export TESTE_DANILO=DANILAO
-          export DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}}
-          export DATABASE_PWD_AGENDAPET='${{secrets.DATABASE_PWD_AGENDAPET}}'
-          export DATABASE_HOST=${{secrets.DATABASE_HOST}}
-          export DATABASE_PORT=${{secrets.DATABASE_PORT}}
-          export DATABASE_NAME=${{secrets.DATABASE_NAME}}
-          export SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}}
+          echo "TESTE_DANILO=DANILAO" >> $GITHUB_ENV
+          echo "DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}}" >> $GITHUB_ENV
+          echo "DATABASE_PWD_AGENDAPET=${{secrets.DATABASE_PWD_AGENDAPET}}" >> $GITHUB_ENV
+          echo "DATABASE_HOST=${{secrets.DATABASE_HOST}}" >> $GITHUB_ENV
+          echo "DATABASE_PORT=${{secrets.DATABASE_PORT}}" >> $GITHUB_ENV
+          echo "DATABASE_NAME=${{secrets.DATABASE_NAME}}" >> $GITHUB_ENV
+          echo "SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}}" >> $GITHUB_ENV
       - name: Deploy to EC2
         run: |
           docker-compose pull
