@@ -42,8 +42,8 @@ jobs:
           echo "DATABASE_PORT=${{secrets.DATABASE_PORT}}" >> $GITHUB_ENV
           echo "DATABASE_NAME=${{secrets.DATABASE_NAME}}" >> $GITHUB_ENV
           echo "SECRET_KEY_AGENDAPET=${{secrets.SECRET_KEY_AGENDAPET}}" >> $GITHUB_ENV
-          echo "AWS_ACCESS_KEY_ID=${{secrets.AWS_ACCESS_KEY_ID}}" >> $GITHUB_ENV
-          echo "AWS_SECRET_KEY=${{secrets.AWS_SECRET_KEY}}" >> $GITHUB_ENV
+          echo "AWS_SERVICE_ID=${{secrets.AWS_SERVICE_ID}}" >> $GITHUB_ENV
+          echo "AWS_SERVICE_SECRET=${{secrets.AWS_SERVICE_ID}}" >> $GITHUB_ENV
       - name: Deploy to EC2
         run: |
           docker-compose pull
