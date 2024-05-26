@@ -15,3 +15,17 @@ application:
     jwt:
       secret-key: ${SECRET_KEY_AGENDAPET}
       expiration: 3600000
+
+aws:
+  accessKeyId: ${AWS_ACCESS_KEY_ID}
+  secretKey: ${AWS_SECRET_KEY}
+  region: us-east-1
+  sns:
+    topic:
+      catalog:
+        arn: arn:aws:sns:us-east-1:958854628479:agendapet-emit
+  sqs:
+    queue-name: agendapet-update
+  s3:
+    bucket: agendapet-s3
+    key: lista_agendapet.json

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.json.JSONObject;
 
 
 @Entity
@@ -36,6 +37,20 @@ public class Animal {
         this.gender = form.gender();
         this.dateOfBirth = form.dateOfBirth();
         this.active = true;
+    }
+
+    public String toString(String action){
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("name", name);
+        json.put("species", species);
+        json.put("breed", breed);
+        json.put("gender", gender);
+        json.put("dateOfBirth", dateOfBirth);
+        json.put("active", active);
+        json.put("action", action);
+
+        return json.toString();
     }
 
 }

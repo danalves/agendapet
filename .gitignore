@@ -3,6 +3,7 @@ target/
 .mvn/
 mvnw*
 logs/
+.env
 
 ### STS ###
 .apt_generated

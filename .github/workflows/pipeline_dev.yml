@@ -36,7 +36,6 @@ jobs:
           wget https://raw.githubusercontent.com/danalves/agendapet/master/infra.yml
       - name: Create Env Vars
         run: |
-          echo "TESTE_DANILO=DANILAO" >> $GITHUB_ENV
           echo "DATABASE_USER_AGENDAPET=${{secrets.DATABASE_USER_AGENDAPET}}" >> $GITHUB_ENV
           echo "DATABASE_PWD_AGENDAPET=${{secrets.DATABASE_PWD_AGENDAPET}}" >> $GITHUB_ENV
           echo "DATABASE_HOST=${{secrets.DATABASE_HOST}}" >> $GITHUB_ENV

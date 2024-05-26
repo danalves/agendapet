@@ -7,9 +7,6 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -28,13 +25,25 @@ public class AnimalController {
 
     @GetMapping("/list")
     public ResponseEntity<Page<Animal>> listAnimals(@PageableDefault(size = 10) Pageable pageable) {
-        return ResponseEntity.ok(service.listAnimals(pageable));
+        return ResponseEntity.ok(service.findAll(pageable));
     }
 
     @PostMapping("/add")
     public ResponseEntity<?> addAnimal(@RequestBody @Valid NewAnimalRequest form) {
         service.addAnimal(form);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateAnimal(@PathVariable Long id, @RequestBody @Valid NewAnimalRequest form) {
+        Animal animal = service.updateAnimal(id, form);
+        return ResponseEntity.ok().body(animal);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteAnimal(@PathVariable Long id) {
+        service.deleteAnimal(id);
+        return ResponseEntity.noContent().build();
     }
 }
 
