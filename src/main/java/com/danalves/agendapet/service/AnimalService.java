@@ -63,7 +63,7 @@ public class AnimalService {
     public void onAnimalCreated(AnimalCreatedEvent event) {
         Animal animal = event.getAnimal();
 
-        log.info("Animal {} criado! Disparando mensagem para fila.", animal.getName());
+        log.info("Animal {} criado! Disparando mensagem para fila AWS.", animal.getName());
         snsService.publish(animal.toString("I"));
     }
 }
