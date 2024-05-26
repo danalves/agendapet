@@ -17,7 +17,7 @@ application:
       expiration: 3600000
 
 aws:
-  accessKeyId: ${AWS_SERVICE_ID}
+  accessKeyId: ${DATABASE_HOST}
   secretKey: ${AWS_SERVICE_SECRET}
   region: us-east-1
   sns:
