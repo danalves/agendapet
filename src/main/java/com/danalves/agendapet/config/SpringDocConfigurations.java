@@ -22,13 +22,13 @@ public class SpringDocConfigurations {
                                         .scheme("bearer")
                                         .bearerFormat("JWT")))
                 .info(new Info()
-                        .title("Voll.med API")
-                        .description("API Rest da aplicação Voll.med, contendo as funcionalidades de CRUD de médicos e de pacientes, além de agendamento e cancelamento de consultas")
+                        .title("AgendaPet API")
+                        .description("API Rest da aplicação AgendaPet")
                         .contact(new Contact()
-                                .name("Time Backend")
-                                .email("backend@voll.med"))
+                                .name("Danilo Vieira")
+                                .email("vieira.daniloalves@gmail.com"))
                         .license(new License()
                                 .name("Apache 2.0")
-                                .url("http://voll.med/api/licenca")));
+                                .url("http://agendapet/api/licenca")));
     }
 }
